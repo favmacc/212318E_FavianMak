@@ -1,9 +1,38 @@
 # Assignment 1
-##Currency Converter
-You will only need one file, ie, your node module, for this assignment.
+## How to use
+Open Terminal through View > Terminal  
+In the terminal, execute 'node app.js'  
+A console will pop up in the terminal, allowing the user to choose what task they want to do by typing in the number in the terminal related to what task they want to do which will use a specific function listed below to show the output
+>Example of how the console looks like:
+>  
+>What do you want to do:
+>1. Convert SGD to Specific Currency  
+>2. Convert Specific Currency to SGD  
+>3. Convert Currency to Currency (Non SGD)  
+>4. Check Rate of Specific Currency  
+>5. Check History of exchanges  
+>==========================  
+>
+Based on the task chosen, follow-up questions will be asked to the user which the user will be able to answer in the terminal
 
-In this readme file, describe how to use your node module. It could be similar to **app.js** from Lab2, where you call some functions in your node module and display the output. Describe how to setup your node module, if any. Describe how to call the functions, what parameters required and so on.
 
-You can press **Ctrl+Shift+V** in this file in Visual Studio Code to see a live preview of the readme file.
+## Functions
 
-For some tips in formatting text in readme file, refer to https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+`StoreHistory` This function is used to store the history of conversions done by the user and is used in functions related to exchanging currency  
+> `ConversionSGDtoDiffCurrency` `ConversionDiffCurrencytoSGD` and `CurrencytoCurrency` are functions which use `StoreHistory`
+>
+  
+`ConversionSGDtoDiffCurrency` This function is used to convert SGD to a currency of the user's choice  
+  
+`ConversionDiffCurrencytoSGD` This function is used to convert the currency of the user's choice to SGD  
+  
+`CurrencytoCurrency` This function is used to convert two currencies of the user's choice from one to another
+> Example: Baht to Yen
+>
+  
+`CheckRate` This function is used to allow the user to check the rate of a specific currency of their choice 
+  
+`CheckHistory` This function is used to allow the user to see the history of their conversions  
+
+
+
