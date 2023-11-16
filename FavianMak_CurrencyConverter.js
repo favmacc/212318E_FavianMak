@@ -19,7 +19,7 @@ let Currencies = {
 };
 let ConversionHistory = [];
 
-//Function used to store history of exchanges
+//Function used to store history of conversions
 //Used in functions that have to do with conversion to store inputs
 function StoreHistory(FromCurrency, ToCurrency, cashValue, convertedAmount, timestamp) {
     const history = {
