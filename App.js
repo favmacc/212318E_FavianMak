@@ -10,7 +10,7 @@ let questions = "\n What do you want to do:\n" +
     "2. Convert Specific Currency to SGD\n" +
     "3. Convert Currency to Currency (Non SGD)\n" +
     "4. Check Rate of Specific Currency\n" +
-    "5. Check Rates of all Currencies\n" +
+    "5. Check History of exchanges\n" +
     "==========================\n";
 
 //Based on option chosen, a certain function will be used
@@ -104,7 +104,7 @@ let handleOption = function (option) {
         case 4:
             console.log('These are the current currencys available ' + JSON.stringify(Object.keys(cc.Currencies)))
             //Allow user to type in currency they have
-            rl.question(`Whats Currency rate do you want to check from SGD: `, (currency) => {
+            rl.question(`What Currency rate do you want to check: `, (currency) => {
                 if (cc.Currencies.hasOwnProperty(currency)) {
                     cc.CheckRate(currency)
                     rl.question(questions, handleOption);
@@ -114,7 +114,7 @@ let handleOption = function (option) {
             })
             break;
         case 5:
-            cc.CheckRateAllCurrencies();
+            cc.CheckHistory();
             rl.question(questions, handleOption);
             break;
     }
