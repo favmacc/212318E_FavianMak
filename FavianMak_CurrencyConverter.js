@@ -16,11 +16,26 @@ let Currencies = {
     Won: 970.07,
     Yen: 111.34,
 
-}
+};
 let ConversionHistory = [];
+
+//Function used to store history of exchanges
+//Used in functions that have to do with conversion to store inputs
+function StoreHistory(FromCurrency, ToCurrency, cashValue, convertedAmount, timestamp) {
+    const history = {
+        From: FromCurrency,
+        To: ToCurrency,
+        Value: cashValue,
+        ConvertedAmount: convertedAmount,
+        Time: timestamp,
+    };
+    //Pushes it into a array to allow to track history of conversions
+    ConversionHistory.push(history);
+};
 module.exports = {
+    StoreHistory,
     Currencies,
-    ConversionHistory,
+
     //The function ConversionSGDtoDIffCurrency is to allow user to input what currency they want to change to
     //as well as input how much SGD they want to convert.
     ConversionSGDtoDiffCurrency(ToCurrency, cashValue) {
@@ -29,14 +44,7 @@ module.exports = {
         const convert2dp = converted.toFixed(2);
         //.toFixed(2) rounds up value to 2 decimal points
         console.log(`The converted amount is ${convert2dp + ` ` + ToCurrency} `);
-        const history = {
-            FromCurrency: 'SGD',
-            ToCurrency,
-            cashValue,
-            convertedAmount: convert2dp,
-            timestamp: new Date().toLocaleString() // Store the timestamp of the conversion
-        };
-        ConversionHistory.push(history);
+        StoreHistory('SGD', ToCurrency, cashValue, convert2dp, new Date().toLocaleString());
 
     },
 
@@ -48,15 +56,7 @@ module.exports = {
         const convert2dp = converted.toFixed(2);
         //.toFixed(2) rounds up value to 2 decimal points
         console.log(`The converted amount is ${convert2dp} SGD `);
-
-        const history = {
-            FromCurrency,
-            ToCurrency: 'SGD',
-            cashValue,
-            convertedAmount: convert2dp,
-            timestamp: new Date().toLocaleString() // Store the timestamp of the conversion
-        };
-        ConversionHistory.push(history);
+        StoreHistory(FromCurrency, 'SGD', cashValue, convert2dp, new Date().toLocaleString());
     },
 
     //The function CurrencytoCurrency is to allow user to input what currency they have,
@@ -69,22 +69,14 @@ module.exports = {
         //To contain info about exchange
 
         console.log(`The converted amount is approximately ${convert2dp + ` ` + currency2}`);
-        const history = {
-            FromCurrency,
-            ToCurrency,
-            cashValue,
-            convertedAmount: convert2dp,
-            timestamp: new Date().toLocaleString() // Store the timestamp of the conversion
-        };
-        //Pushes it into a array to allow to track history of conversions
-        ConversionHistory.push(history);
+        StoreHistory(FromCurrency, ToCurrency, cashValue, convert2dp, new Date().toLocaleString());
     },
 
     //Shows the rate of the currency
     CheckRate(currency) {
         console.log(`${currency + ' rate = ' + Currencies[currency]}`)
     },
-    //The function CheckRateAllCurrencies is to allow user to see exchange rates of all currencies
+    //The function is to show history of conversions
     CheckHistory() {
         console.log('History of Exchanges: \n')
         console.log(ConversionHistory);
