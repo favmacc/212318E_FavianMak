@@ -20,13 +20,18 @@ Based on the task chosen, follow-up questions will be asked to the user which th
 
 `StoreHistory` This function is used to store the history of conversions done by the user and is used in functions related to exchanging currency  
 > `ConversionSGDtoDiffCurrency` `ConversionDiffCurrencytoSGD` and `CurrencytoCurrency` are functions which use `StoreHistory`
-> 
+>
+  
 `ConversionSGDtoDiffCurrency` This function is used to convert SGD to a currency of the user's choice  
+  
 `ConversionDiffCurrencytoSGD` This function is used to convert the currency of the user's choice to SGD  
+  
 `CurrencytoCurrency` This function is used to convert two currencies of the user's choice from one to another
 > Example: Baht to Yen
-> 
-`CheckRate` This function is used to allow the user to check the rate of a specific currency of their choice  
+>
+  
+`CheckRate` This function is used to allow the user to check the rate of a specific currency of their choice 
+  
 `CheckHistory` This function is used to allow the user to see the history of their conversions  
 
 
