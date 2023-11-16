@@ -22,17 +22,17 @@ Based on the task chosen, follow-up questions will be asked to the user which th
 > `ConversionSGDtoDiffCurrency` `ConversionDiffCurrencytoSGD` and `CurrencytoCurrency` are functions which use `StoreHistory`
 >
   
-`ConversionSGDtoDiffCurrency` This function is used to convert SGD to a currency of the user's choice  
+`ConversionSGDtoDiffCurrency` This function is used to convert SGD to a currency of the user's choice and will return an error if a non integer/float is typed in 
   
-`ConversionDiffCurrencytoSGD` This function is used to convert the currency of the user's choice to SGD  
+`ConversionDiffCurrencytoSGD` This function is used to convert the currency of the user's choice to SGD and will return an error if a non integer/float is typed in 
   
 `CurrencytoCurrency` This function is used to convert two currencies of the user's choice from one to another
 > Example: Baht to Yen
 >
   
-`CheckRate` This function is used to allow the user to check the rate of a specific currency of their choice 
+`CheckRate` This function is used to allow the user to check the rate of a specific currency of their choice and will return an error if user entered an invalid currency 
   
-`CheckHistory` This function is used to allow the user to see the history of their conversions  
+`CheckHistory` This function is used to allow the user to see the history of their conversions and will return an error if array containing conversion history is empty
 
 
 

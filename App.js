@@ -52,17 +52,9 @@ let handleOption = function (option) {
                     rl.question(`How much(${currency}) would you like to convert to SGD: `, (cash) => {
                         //Number() converts input into float value
                         const cashValue = parseFloat(cash)
-                        //if value typed is a number
-                        if (!isNaN(cashValue)) {
-                            cc.ConversionDiffCurrencytoSGD(currency, cashValue)
-                            rl.question(questions, handleOption);
-                        }
-                        //if value typed in is not a number
-                        else {
-                            console.log('PLEASE ENTER A VALID INPUT \n');
-                            rl.question(questions, handleOption);
-                        }
-
+                        //use function ConversionDiffCurrencytoSGD
+                        cc.ConversionDiffCurrencytoSGD(currency, cashValue)
+                        rl.question(questions, handleOption);
                     })
                 }
 
@@ -82,16 +74,8 @@ let handleOption = function (option) {
                         if (cc.Currencies.hasOwnProperty(currency2)) {
                             rl.question(`How much ${currency1} would you like to convert to ${currency2}: `, (cash) => {
                                 const cashValue = parseFloat(cash)
-                                //if value typed is a number
-                                if (!isNaN(cashValue)) {
-                                    cc.CurrencytoCurrency(currency1, currency2, cashValue);
-                                    rl.question(questions, handleOption);
-                                }
-                                //if value typed in is not a number
-                                else {
-                                    console.log('PLEASE ENTER A VALID INPUT \n');
-                                    rl.question(questions, handleOption);
-                                }
+                                cc.CurrencytoCurrency(currency1, currency2, cashValue);
+                                rl.question(questions, handleOption);
                             })
                         }
                         //This happens when user types in currency that does not exist in the object Currencies
@@ -105,12 +89,8 @@ let handleOption = function (option) {
             console.log('These are the current currencys available ' + JSON.stringify(Object.keys(cc.Currencies)))
             //Allow user to type in currency they have
             rl.question(`What Currency rate do you want to check: `, (currency) => {
-                if (cc.Currencies.hasOwnProperty(currency)) {
                     cc.CheckRate(currency)
                     rl.question(questions, handleOption);
-                }
-
-                else { console.log('PLEASE ENTER A VALID CURRENCY \n'); rl.question(questions, handleOption); }
             })
             break;
         case 5:
