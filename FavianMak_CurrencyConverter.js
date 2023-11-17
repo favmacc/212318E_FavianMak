@@ -79,7 +79,7 @@ module.exports = {
         const exchangeRateTo = Currencies[ToCurrency];
         const converted = (cashValue / exchangeRateFrom) * exchangeRateTo;
         const convert2dp = converted.toFixed(2);
-        console.log(`The converted amount is approximately ${convert2dp + ` ` + currency2}`);
+        console.log(`The converted amount is approximately ${convert2dp + ` ` + ToCurrency}`);
         StoreHistory(FromCurrency, ToCurrency, cashValue, convert2dp, new Date().toLocaleString());
         }
         else {
